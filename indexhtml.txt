@@ -1,0 +1,1637 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سِمُو | عطور فاخرة تُعبقُ روحك</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        /* Global Styles */
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap');
+        
+        :root {
+            --gold: #D4AF37;
+            --purple: #6A0DAD;
+            --pink: #FF69B4;
+            --black: #0F0F0F;
+            --white: #F5F5F5;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23D4AF37" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>'), auto;
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--black);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* Particle JS Background */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            top: 0;
+            left: 0;
+        }
+
+        /* Floating Elements */
+        .floating-element {
+            position: absolute;
+            opacity: 0.7;
+            z-index: -1;
+        }
+
+        .floating-element-1 {
+            top: 20%;
+            left: 5%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .floating-element-2 {
+            top: 60%;
+            right: 10%;
+            animation: float 6s ease-in-out infinite 2s;
+        }
+
+        .floating-element-3 {
+            bottom: 10%;
+            left: 15%;
+            animation: float 7s ease-in-out infinite 1s;
+        }
+        
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(15, 15, 15, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--gold);
+            animation: fadeInDown 1s ease;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gold);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+        }
+        
+        .logo i {
+            margin-left: 10px;
+            font-size: 1.8rem;
+        }
+
+        /* CSS-based logo container */
+        .logo-container {
+            display: inline-flex;
+            align-items: center;
+        }
+
+        /* CSS-based logo design */
+        .logo-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--gold), var(--purple));
+            margin-left: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--black);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--gold);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--gold);
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .cart-icon {
+            position: relative;
+            font-size: 1.5rem;
+            color: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        .cart-icon:hover {
+            transform: rotate(-15deg);
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: var(--pink);
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.7rem;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.7;
+        }
+        
+        .hero-content {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 0 10%;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--gold), var(--pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+            animation: fadeInUp 1s ease, glow 2s ease-in-out infinite alternate;
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            max-width: 600px;
+            animation: fadeInUp 1s ease 0.3s forwards;
+            opacity: 0;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, var(--gold), var(--purple));
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease 0.6s forwards;
+            opacity: 0;
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(30deg);
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover::after {
+            left: 100%;
+        }
+        
+        /* Featured Products */
+        .featured {
+            padding: 100px 5%;
+            background: linear-gradient(to bottom, var(--black), #1a1a1a);
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 3rem;
+            color: var(--gold);
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(to right, var(--gold), var(--pink));
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px) rotateY(5deg);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--gold);
+        }
+        
+        .product-image {
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: var(--pink);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-name {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--gold);
+        }
+        
+        .product-description {
+            color: #ccc;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .product-notes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .note {
+            background: rgba(212, 175, 55, 0.2);
+            color: var(--gold);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .note:hover {
+            background: var(--gold);
+            color: var(--black);
+            transform: scale(1.1);
+        }
+        
+        .product-price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--white);
+        }
+        
+        .add-to-cart {
+            background: var(--gold);
+            color: var(--black);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .add-to-cart:hover {
+            background: var(--pink);
+            transform: scale(1.1);
+        }
+        
+        /* Collections Section */
+        .collections {
+            padding: 100px 5%;
+            background: url('https://cdn.pixabay.com/photo/2017/01/25/17/34/city-2008274_1280.jpg') no-repeat center center/cover;
+            position: relative;
+        }
+        
+        .collections::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+        }
+        
+        .collections .section-title h2 {
+            color: var(--white);
+        }
+        
+        .collection-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .tab-btn {
+            padding: 10px 25px;
+            background: transparent;
+            color: var(--white);
+            border: none;
+            font-size: 1.1rem;
+            margin: 0 10px;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .tab-btn::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--gold);
+            transition: width 0.3s ease;
+        }
+        
+        .tab-btn.active, .tab-btn:hover {
+            color: var(--gold);
+        }
+        
+        .tab-btn.active::after, .tab-btn:hover::after {
+            width: 100%;
+        }
+        
+        .collection-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .collection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .collection-card {
+            height: 400px;
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .collection-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+        
+        .collection-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .collection-card:hover img {
+            transform: scale(1.1);
+        }
+        
+        .collection-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+        }
+        
+        .collection-name {
+            font-size: 1.8rem;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+        
+        .collection-desc {
+            color: var(--white);
+            margin-bottom: 15px;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 100px 5%;
+            background: linear-gradient(to bottom, #1a1a1a, var(--black));
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('') no-repeat center center/cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .about-image {
+            flex: 1;
+            height: 500px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+            transition: all 0.5s ease;
+        }
+
+        .about-image:hover {
+            transform: rotate(-2deg) scale(1.02);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .about-content {
+            flex: 1;
+            padding-right: 50px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .about-content h2 {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .about-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(to right, var(--gold), var(--pink));
+        }
+        
+        .about-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #ccc;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 5%;
+            background: url('') no-repeat center center/cover;
+            position: relative;
+        }
+        
+        .testimonials::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+        }
+        
+        .testimonials .section-title h2 {
+            color: var(--white);
+        }
+        
+        .testimonial-slider {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 0 15px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .testimonial-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: var(--white);
+            position: relative;
+        }
+        
+        .testimonial-text::before {
+            content: '\201C';
+            font-size: 4rem;
+            color: rgba(212, 175, 55, 0.3);
+            position: absolute;
+            top: -20px;
+            left: -15px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-left: 20px;
+            border: 2px solid var(--gold);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover .author-img {
+            transform: rotate(15deg);
+        }
+        
+        .author-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            color: var(--gold);
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+        
+        /* Newsletter */
+        .newsletter {
+            padding: 80px 5%;
+            background: linear-gradient(135deg, var(--purple), var(--black));
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .newsletter::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('') no-repeat center center/cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .newsletter h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--gold);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .newsletter p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            color: #ccc;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 30px 0 0 30px;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-form input:focus {
+            outline: none;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+        }
+        
+        .newsletter-form button {
+            padding: 15px 30px;
+            background: var(--gold);
+            color: var(--black);
+            border: none;
+            border-radius: 0 30px 30px 0;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .newsletter-form button:hover {
+            background: var(--pink);
+            color: white;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--black);
+            padding: 50px 5% 20px;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('') no-repeat center center/cover;
+            opacity: 0.05;
+            z-index: 0;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .footer-column h3 {
+            color: var(--gold);
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background-color: var(--gold);
+            bottom: -10px;
+            left: 0;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--gold);
+            padding-right: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--gold);
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--gold);
+            color: var(--black);
+            transform: translateY(-5px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #777;
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            
+            .about {
+                flex-direction: column;
+            }
+            
+            .about-content {
+                padding-right: 0;
+                margin-bottom: 40px;
+            }
+            
+            .about-image {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-form input {
+                border-radius: 30px;
+                margin-bottom: 10px;
+            }
+            
+            .newsletter-form button {
+                border-radius: 30px;
+            }
+        }
+        
+        /* Animation Classes */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from { 
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+            }
+            to {
+                text-shadow: 0 0 20px rgba(212, 175, 55, 0.8);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--black);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(var(--gold), var(--pink));
+            border-radius: 10px;
+        }
+        
+        /* Add to Cart Animation */
+        @keyframes addToCart {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+            100% { transform: scale(1); }
+        }
+        
+        .add-to-cart-animation {
+            animation: addToCart 0.5s ease;
+        }
+
+        /* Perfume Spray Animation */
+        .spray-animation {
+            position: fixed;
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1000;
+            transform: translate(-50%, -50%);
+            animation: spray 1s ease-out forwards;
+            filter: blur(10px);
+            opacity: 0;
+        }
+
+        @keyframes spray {
+            0% {
+                transform: translate(-50%, -50%) scale(0.1);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(3);
+                opacity: 0;
+            }
+        }
+
+        /* Floating Perfume Bottles */
+        .perfume-bottle {
+            position: absolute;
+            width: 80px;
+            height: 150px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            z-index: -1;
+            animation: floatBottle 8s ease-in-out infinite;
+        }
+
+        @keyframes floatBottle {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-30px) rotate(5deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Particle JS Background -->
+    <div id="particles-js"></div>
+
+    <!-- Floating Elements -->
+    <div class="floating-element floating-element-1" style="width: 150px; height: 150px; background: linear-gradient(45deg, var(--gold), var(--pink)); border-radius: 50%;"></div>
+    <div class="floating-element floating-element-2" style="width: 120px; height: 120px; background: linear-gradient(45deg, var(--purple), var(--gold)); border-radius: 50%;"></div>
+    <div class="floating-element floating-element-3" style="width: 100px; height: 100px; background: linear-gradient(45deg, var(--pink), var(--purple)); border-radius: 50%;"></div>
+
+    <!-- Header -->
+    <header class="animate__animated animate__fadeInDown">
+        <a href="#" class="logo">
+            <span class="logo-container">
+                سِمُو
+                <div class="logo-circle">س</div>
+            </span>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#">الرئيسية</a></li>
+                <li><a href="#featured">منتجاتنا</a></li>
+                <li><a href="#collections">المجموعات</a></li>
+                <li><a href="#about">من نحن</a></li>
+                <li><a href="#testimonials">آراء العملاء</a></li>
+                <li><a href="#contact">اتصل بنا</a></li>
+            </ul>
+        </nav>
+        <div class="cart-icon">
+            <i class="fas fa-shopping-bag"></i>
+            <span class="cart-count">0</span>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <video autoplay muted loop>
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-woman-spraying-perfume-in-slow-motion-17751-large.mp4" type="video/mp4">
+        </video>
+        <div class="hero-content">
+            <h1>سِمُو... حيث يصبح العطر سحراً</h1>
+            <p>اكتشف مجموعة العطور الفاخرة التي صممت خصيصاً لتعكس شخصيتك الفريدة</p>
+            <a href="#featured" class="btn">اكتشف المجموعة</a>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured" id="featured">
+        <div class="section-title">
+            <h2>أفضل العطور</h2>
+        </div>
+        <div class="products-grid">
+            <!-- Product 1 - Women -->
+            <div class="product-card animate__animated animate__fadeInUp" style="animation-delay: 0.1s;">
+                <div class="product-image">
+                    <div style="width:100%; height:100%; background:linear-gradient(45deg, var(--purple), var(--gold)); display:flex; justify-content:center; align-items:center;">
+                        <span style="color:white; font-size:2rem;">شغف العود</span>
+                    </div>
+                    <span class="product-badge">الأكثر مبيعاً</span>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">شغف العود</h3>
+                    <p class="product-description">عطر شرقي غني برائحة العود الفاخر مع لمسات من الزعفران والفانيليا</p>
+                    <div class="product-notes">
+                        <span class="note">عود</span>
+                        <span class="note">زعفران</span>
+                        <span class="note">فانيليا</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="price">$800</span>
+                        <button class="add-to-cart"><i class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 2 - Men -->
+            <div class="product-card animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+                <div class="product-image">
+                    <div style="width:100%; height:100%; background:linear-gradient(45deg, var(--gold), var(--pink)); display:flex; justify-content:center; align-items:center;">
+                        <span style="color:white; font-size:2rem;">أمير العود</span>
+                    </div>
+                    <span class="product-badge">جديد</span>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">أمير العود</h3>
+                    <p class="product-description">مزيج ملكي من خشب العود والمسك مع لمسات من التوت الأسود</p>
+                    <div class="product-notes">
+                        <span class="note">عود</span>
+                        <span class="note">مسك</span>
+                        <span class="note">توت أسود</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="price">$350</span>
+                        <button class="add-to-cart"><i class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 3 - Women -->
+            <div class="product-card animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
+                <div class="product-image">
+                    <div style="width:100%; height:100%; background:linear-gradient(45deg, var(--pink), var(--purple)); display:flex; justify-content:center; align-items:center;">
+                        <span style="color:white; font-size:2rem;">الوردة الذهبية</span>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">الوردة الذهبية</h3>
+                    <p class="product-description">عطر نسائي رومانسي يجمع بين روائح الورد التركي والعنبر</p>
+                    <div class="product-notes">
+                        <span class="note">ورد تركي</span>
+                        <span class="note">عنبر</span>
+                        <span class="note">فانيلا</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="price">$295</span>
+                        <button class="add-to-cart"><i class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 4 - Men -->
+            <div class="product-card animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+                <div class="product-image">
+                    <div style="width:100%; height:100%; background:linear-gradient(45deg, var(--black), var(--gold)); display:flex; justify-content:center; align-items:center;">
+                        <span style="color:white; font-size:2rem;">ملك الصحراء</span>
+                    </div>
+                    <span class="product-badge">حصري</span>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">ملك الصحراء</h3>
+                    <p class="product-description">عطر خشبي قوي يعكس روح الصحراء بروائح العنبر والجلود</p>
+                    <div class="product-notes">
+                        <span class="note">عنبر</span>
+                        <span class="note">جلود</span>
+                        <span class="note">توابل</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="price">$480</span>
+                        <button class="add-to-cart"><i class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collections Section -->
+    <section class="collections" id="collections">
+        <div class="section-title">
+            <h2 class="animate__animated animate__fadeIn">مجموعاتنا الفاخرة</h2>
+        </div>
+        <div class="collection-tabs">
+            <button class="tab-btn active" data-collection="women">للنساء</button>
+            <button class="tab-btn" data-collection="men">للرجال</button>
+        </div>
+        <div class="collection-content">
+            <div class="collection-grid">
+                <!-- Collection 1 - Women -->
+                <div class="collection-card animate__animated animate__fadeIn" style="animation-delay: 0.1s;">
+                    <div style="width:100%; height:100%; background:linear-gradient(45deg, var(--gold), var(--black));"></div>
+                    <div class="collection-overlay">
+                        <h3 class="collection-name">المجموعة الذهبية</h3>
+                        <p class="collection-desc">عطور العود الفاخرة الممزوجة بالذهب</p>
+                        <a href="#" class="btn">استكشف</a>
+                    </div>
+                </div>
+                
+                <!-- Collection 2 - Women -->
+                <div class="collection-card animate__animated animate__fadeIn" style="animation-delay: 0.2s;">
+                    <div style="width:100%; height:100%; background:linear-gradient(45deg, var(--pink), var(--purple));"></div>
+                    <div class="collection-overlay">
+                        <h3 class="collection-name">أحلام زهرية</h3>
+                        <p class="collection-desc">أجمل العطور النسائية بروائح الزهور</p>
+                        <a href="#" class="btn">استكشف</a>
+                    </div>
+                </div>
+                
+                <!-- Collection 3 - Men -->
+                <div class="collection-card animate__animated animate__fadeIn" style="animation-delay: 0.3s;">
+                    <div style="width:100%; height:100%; background:linear-gradient(45deg, var(--purple), var(--black));"></div>
+                    <div class="collection-overlay">
+                        <h3 class="collection-name">أناقة خشبية</h3>
+                        <p class="collection-desc">عطور رجالية بقوة الأخشاب النادرة</p>
+                        <a href="#" class="btn">استكشف</a>
+                    </div>
+                </div>
+                
+                <!-- Collection 4 - Men -->
+                <div class="collection-card animate__animated animate__fadeIn" style="animation-delay: 0.4s;">
+                    <div style="width:100%; height:100%; background:linear-gradient(45deg, var(--black), var(--gold));"></div>
+                    <div class="collection-overlay">
+                        <h3 class="collection-name">عبير الصحراء</h3>
+                        <p class="collection-desc">عطور رجالية مستوحاة من روائح الصحراء</p>
+                        <a href="#" class="btn">استكشف</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-content">
+            <h2 class="animate__animated animate__fadeIn">قصتنا</h2>
+            <p class="animate__animated animate__fadeIn" style="animation-delay: 0.2s;">سِمُو هي علامة تجارية للعطور الفاخرة تأسست في دبي عام 2010، مستوحاة من روائح الشرق الساحرة وتقاليده العريقة في صناعة العطور. نحن نؤمن بأن العطر ليس مجرد رائحة، بل هو هوية وشخصية.</p>
+            <p class="animate__animated animate__fadeIn" style="animation-delay: 0.3s;">نستخدم في تصنيع عطورنا أفضل المواد الخام من جميع أنحاء العالم، مع الحفاظ على الأساليب التقليدية في التصنيع التي تميز العطور الفاخرة.</p>
+            <p class="animate__animated animate__fadeIn" style="animation-delay: 0.4s;">كل عطر من عطور سِمُو يحكي قصة، قصة من الشغف والجمال والتفرد. اكتشف قصتك معنا.</p>
+            <a href="#collections" class="btn animate__animated animate__fadeIn" style="animation-delay: 0.5s;">اكتشف مجموعتنا</a>
+        </div>
+        <div class="about-image animate__animated animate__fadeInRight">
+            <div style="width:100%; height:100%; background:linear-gradient(45deg, var(--gold), var(--pink)); display:flex; justify-content:center; align-items:center;">
+                <span style="color:white; font-size:3rem; text-align:center;">صناعة العطور الفاخرة</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="section-title">
+            <h2 class="animate__animated animate__fadeIn">آراء عملائنا</h2>
+        </div>
+        <div class="testimonial-slider">
+            <div class="testimonial-card animate__animated animate__fadeIn" style="animation-delay: 0.1s;">
+                <p class="testimonial-text">عطر شغف العود من سِمُو هو أفضل عطر اشتريته في حياتي! الرائحة تدوم طوال اليوم وتجذب الكثير من الإطراءات.</p>
+                <div class="testimonial-author">
+                    <div class="author-img">
+                        <div style="width:100%; height:100%; background:var(--gold); display:flex; justify-content:center; align-items:center;">
+                            <span style="color:var(--black); font-size:1.5rem;">س</span>
+                        </div>
+                    </div>
+                    <div class="author-info">
+                        <h4>سارة أحمد</h4>
+                        <p>عميلة منذ 2018</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card animate__animated animate__fadeIn" style="animation-delay: 0.2s;">
+                <p class="testimonial-text">مجموعة العطور الرجالية من سِمُو ببساطة مذهلة. أنا أستخدم "ملك الصحراء" يومياً وهو يعكس شخصيتي تماماً.</p>
+                <div class="testimonial-author">
+                    <div class="author-img">
+                        <div style="width:100%; height:100%; background:var(--gold); display:flex; justify-content:center; align-items:center;">
+                            <span style="color:var(--black); font-size:1.5rem;">خ</span>
+                        </div>
+                    </div>
+                    <div class="author-info">
+                        <h4>خالد محمد</h4>
+                        <p>عميل منذ 2019</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card animate__animated animate__fadeIn" style="animation-delay: 0.3s;">
+                <p class="testimonial-text">خدمة العملاء ممتازة والعطور ذات جودة لا مثيل لها. أوصي جميع أصدقائي بشراء عطور سِمُو.</p>
+                <div class="testimonial-author">
+                    <div class="author-img">
+                        <div style="width:100%; height:100%; background:var(--gold); display:flex; justify-content:center; align-items:center;">
+                            <span style="color:var(--black); font-size:1.5rem;">ن</span>
+                        </div>
+                    </div>
+                    <div class="author-info">
+                        <h4>نورة عبدالله</h4>
+                        <p>عميلة منذ 2020</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter" id="contact">
+        <h2 class="animate__animated animate__fadeIn">انضم إلى قائمتنا البريدية</h2>
+        <p class="animate__animated animate__fadeIn" style="animation-delay: 0.2s;">اشترك لتحصل على آخر التحديثات والعروض الحصرية قبل الجميع</p>
+        <form class="newsletter-form animate__animated animate__fadeIn" style="animation-delay: 0.3s;">
+            <input type="email" placeholder="بريدك الإلكتروني" required>
+            <button type="submit">اشترك</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column animate__animated animate__fadeIn" style="animation-delay: 0.1s;">
+                <h3>سِمُو</h3>
+                <p>حيث يصبح العطر سحراً</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="footer-column animate__animated animate__fadeIn" style="animation-delay: 0.2s;">
+                <h3>روابط سريعة</h3>
+                <ul>
+                    <li><a href="#">الرئيسية</a></li>
+                    <li><a href="#featured">منتجاتنا</a></li>
+                    <li><a href="#collections">المجموعات</a></li>
+                    <li><a href="#about">من نحن</a></li>
+                    <li><a href="#testimonials">آراء العملاء</a></li>
+                </ul>
+            </div>
+            <div class="footer-column animate__animated animate__fadeIn" style="animation-delay: 0.3s;">
+                <h3>خدمة العملاء</h3>
+                <ul>
+                    <li><a href="#">سياسة الشحن</a></li>
+                    <li><a href="#">سياسة الإرجاع</a></li>
+                    <li><a href="#">الأسئلة الشائعة</a></li>
+                    <li><a href="#">اتصل بنا</a></li>
+                </ul>
+            </div>
+            <div class="footer-column animate__animated animate__fadeIn" style="animation-delay: 0.4s;">
+                <h3>اتصل بنا</h3>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> دبي، الإمارات العربية المتحدة</li>
+                    <li><i class="fas fa-phone"></i> +971 50 123 4567</li>
+                    <li><i class="fas fa-envelope"></i> info@simo-perfume.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom animate__animated animate__fadeIn" style="animation-delay: 0.5s;">
+            <p>&copy; 2023 سِمُو. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script>
+        // Initialize Particle.js
+        particlesJS("particles-js", {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#D4AF37"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#D4AF37",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 2,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "grab"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 140,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+
+        // Add to Cart Animation
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        const cartCount = document.querySelector('.cart-count');
+        let count = 0;
+        
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                // Add to cart animation
+                button.classList.add('add-to-cart-animation');
+                setTimeout(() => {
+                    button.classList.remove('add-to-cart-animation');
+                }, 500);
+                
+                // Update cart count
+                count++;
+                cartCount.textContent = count;
+                
+                // Create perfume spray effect
+                createSprayEffect(e.clientX, e.clientY);
+                
+                // Play sound effect
+                const audio = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-arcade-game-jump-coin-216.mp3');
+                audio.play();
+            });
+        });
+
+        // Create perfume spray effect
+        function createSprayEffect(x, y) {
+            const spray = document.createElement('div');
+            spray.className = 'spray-animation';
+            spray.style.left = `${x}px`;
+            spray.style.top = `${y}px`;
+            document.body.appendChild(spray);
+            
+            setTimeout(() => {
+                spray.remove();
+            }, 1000);
+        }
+        
+        // Collection Tabs
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                // Here you would typically filter the collections
+                // For this demo, we're just changing the active tab
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Video mute/unmute toggle
+        const heroVideo = document.querySelector('.hero video');
+        
+        heroVideo.addEventListener('click', () => {
+            heroVideo.muted = !heroVideo.muted;
+        });
+
+        // GSAP Animations
+        gsap.from(".logo", {
+            duration: 1,
+            y: -50,
+            opacity: 0,
+            delay: 0.5,
+            ease: "power2.out"
+        });
+
+        gsap.from("nav ul li", {
+            duration: 1,
+            y: -50,
+            opacity: 0,
+            delay: 0.7,
+            stagger: 0.1,
+            ease: "power2.out"
+        });
+
+        gsap.from(".cart-icon", {
+            duration: 1,
+            y: -50,
+            opacity: 0,
+            delay: 1,
+            ease: "power2.out"
+        });
+
+        // Scroll animations
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.animate__animated');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementPosition < windowHeight - 100) {
+                    const animationClass = element.classList[1];
+                    element.classList.add(animationClass);
+                }
+            });
+        };
+
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+
+        // Create floating perfume bottles
+        function createFloatingBottles() {
+            const bottleColors = [
+                'linear-gradient(45deg, var(--gold), var(--pink))',
+                'linear-gradient(45deg, var(--purple), var(--gold))',
+                'linear-gradient(45deg, var(--pink), var(--purple))'
+            ];
+
+            for (let i = 0; i < 5; i++) {
+                const bottle = document.createElement('div');
+                bottle.className = 'perfume-bottle';
+                bottle.style.background = bottleColors[i % bottleColors.length];
+                bottle.style.left = `${Math.random() * 100}%`;
+                bottle.style.top = `${Math.random() * 100}%`;
+                bottle.style.animationDelay = `${Math.random() * 5}s`;
+                document.body.appendChild(bottle);
+            }
+        }
+
+        createFloatingBottles();
+    </script>
+</body>
+</html>
